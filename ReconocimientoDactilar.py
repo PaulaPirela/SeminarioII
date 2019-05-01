@@ -1,11 +1,11 @@
+from PIL import Image
 import math
-from pip import Image
 
 
-def escagris():  # convierte la imagen de colores a escala de grises
+def escagris(img):  # convierte la imagen de colores a escala de grises
     arr = img.load()
-    for x in xrange(Image.size[0]):
-        for y in xrange(Image.size[1]):
+    for x in range(img.size[0]):
+        for y in range(img.size[1]):
             arr[x, y] = img.getpixel((x, y))
     return arr
 
@@ -16,8 +16,8 @@ huella.save("ImagenesOutput/escagris.tif")
 huella.show()  # muestra como la imagen va quedando
 def binarizacion(img,umbral):
         arr = img.load()
-        for x in xrange(Image.size[0]):
-            for y in xrange(Image.size[1]):
+        for x in range(img.size[0]):
+            for y in range(img.size[1]):
                 p = img.getpixel((x, y))
                 if p>umbral:
                     arr[x,y] = 255  # colores negro
@@ -55,8 +55,8 @@ def adelgazamiento(img,mascaraH,mascaraV):  # adelgaza las huellas para su debid
     Vi = mascaraV[2][2]
 
 
-    for x in xrange(1,img.size[0]-1):
-        for y in xrange(1, img.size[-1]- 1):
+    for x in range(1,img.size[0]-1):
+        for y in range(1, img.size[-1]- 1):
             Ia = img.getpixel(x-1,y-1)
             Ib = img.getpixel(x-1,y)
             Ic = img.getpixel(x-1,y+1)
@@ -139,8 +139,8 @@ def poda(img, mascaraH, mascaraV):  # Pule la imagen
     Vi = mascaraV[2][2]
 
 
-    for x in xrange(1, img.size[0] - 1):
-        for y in xrange(1, img.size[1] - 1):
+    for x in range(1, img.size[0] - 1):
+        for y in range(1, img.size[1] - 1):
             Ia = img.getpixel(x - 1, y - 1)
             Ib = img.getpixel(x - 1, y)
             Ic = img.getpixel(x - 1, y + 1)
