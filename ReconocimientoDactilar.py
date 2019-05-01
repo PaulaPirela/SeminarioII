@@ -75,7 +75,7 @@ def adelgazamiento(img,mascaraH,mascaraV):  # adelgaza las huellas para su debid
                 valor = 255.0
             arr[x-1,y-1] = int(valor)
     return arr
-    
+
 
 img = Image.open("ImagenesOutput/binarizacion.tif").convert("L")
 thinningX = [[0.0, 0.0, 0.0],
