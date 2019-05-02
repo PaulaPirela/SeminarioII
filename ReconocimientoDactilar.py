@@ -10,7 +10,7 @@ def escagris(img):  # convierte la imagen de colores a escala de grises
     return arr
 
 
-huella=Image.open("ImagenesInput/huella.png").convert("L")
+huella=Image.open("ImagenesInput/huela1.png").convert("L")
 convirtiendo = escagris(huella)
 huella.save("ImagenesOutput/escagris.tif")
 huella.show()  # muestra como la imagen va quedando
@@ -57,15 +57,15 @@ def adelgazamiento(img,mascaraH,mascaraV):  # adelgaza las huellas para su debid
 
     for x in range(1,img.size[0]-1):
         for y in range(1, img.size[-1]- 1):
-            Ia = img.getpixel(x-1,y-1)
-            Ib = img.getpixel(x-1,y)
-            Ic = img.getpixel(x-1,y+1)
-            Id = img.getpixel(x,y-1)
-            Ie = img.getpixel(x,y)
-            If = img.getpixel(x,y+1)
-            Ig = img.getpixel(x+1,y-1)
-            Ih = img.getpixel(x+1,y)
-            Ii = img.getpixel(x+1, y+1)
+            Ia = img.getpixel((x-1,y-1))
+            Ib = img.getpixel((x-1,y))
+            Ic = img.getpixel((x-1,y+1))
+            Id = img.getpixel((x,y-1))
+            Ie = img.getpixel((x,y))
+            If = img.getpixel((x,y+1))
+            Ig = img.getpixel((x+1,y-1))
+            Ih = img.getpixel((x+1,y))
+            Ii = img.getpixel((x+1, y+1))
             Gx = Ha*Ia+Hb*Ib+Hc*Ic+Hd*Id+He*Ie+Hf*If+Hg*Ig+Hh*Ih+Hi*Ii
             Gy = Va*Ia+Vb*Ib+Vc*Ic+Vd*Id+Ve*Ie+Vf*If+Vg*Ig+Vh*Ih+Vi*Ii
             Gx = math.fabs(-Ia-Id-Ig+Ic+If+Ii)
@@ -141,15 +141,15 @@ def poda(img, mascaraH, mascaraV):  # Pule la imagen
 
     for x in range(1, img.size[0] - 1):
         for y in range(1, img.size[1] - 1):
-            Ia = img.getpixel(x - 1, y - 1)
-            Ib = img.getpixel(x - 1, y)
-            Ic = img.getpixel(x - 1, y + 1)
-            Id = img.getpixel(x, y - 1)
-            Ie = img.getpixel(x, y)
-            If = img.getpixel(x, y + 1)
-            Ig = img.getpixel(x + 1, y - 1)
-            Ih = img.getpixel(x + 1, y)
-            Ii = img.getpixel(x + 1, y + 1)
+            Ia = img.getpixel((x-1,y-1))
+            Ib = img.getpixel((x-1,y))
+            Ic = img.getpixel((x-1,y+1))
+            Id = img.getpixel((x,y-1))
+            Ie = img.getpixel((x,y))
+            If = img.getpixel((x,y+1))
+            Ig = img.getpixel((x+1,y-1))
+            Ih = img.getpixel((x+1,y))
+            Ii = img.getpixel((x+1,y+1))
             Gx = Ha * Ia + Hb * Ib + Hc * Ic + Hd * Id + He * Ie + Hf * If + Hg * Ig + Hh * Ih + Hi * Ii
             Gy = Va * Ia + Vb * Ib + Vc * Ic + Vd * Id + Ve * Ie * Vf * If + Vg * Ig + Vh * Ih + Vi * Ii
             Gx = math.fabs(-Ia - Id - Ig + Ic + If + Ii)
